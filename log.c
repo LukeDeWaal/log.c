@@ -56,12 +56,12 @@ static void stdout_callback(log_Event *ev) {
     buf[strftime(buf, sizeof(buf), "[%H:%M:%S]", ev->time)] = '\0';
 #ifdef LOG_USE_COLOR
     fprintf(
-      ev->udata, "%s %s%-5s\x1b[0m \x1b[97m%s:%d (%s):\x1b[0m ",
+      ev->udata, "%s %s%-5s\x1b[0m \x1b[97m%s:%04d (%s):\x1b[0m ",
       buf, level_colors[ev->level], level_strings[ev->level],
       ev->file, ev->line, ev->func);
 #else
     fprintf(
-            ev->udata, "%s %-5s %s:%d: ",
+            ev->udata, "%s %-5s %s:%04d: ",
             buf, level_strings[ev->level], ev->file, ev->line);
 #endif
     vfprintf(ev->udata, ev->fmt, ev->ap);
