@@ -107,6 +107,9 @@ void log_set_level(int level) {
     Logger.level = level;
 }
 
+int log_get_level(void) {
+    return Logger.level;
+}
 
 void log_set_quiet(bool enable) {
     Logger.quiet = enable;

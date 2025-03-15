@@ -52,6 +52,8 @@ void log_set_lock(log_LockFn fn, void *udata);
 
 void log_set_level(int level);
 
+int log_get_level(void);
+
 void log_set_quiet(bool enable);
 
 int log_add_callback(log_LogFn fn, void *udata, int level);
